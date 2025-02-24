@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+
+int findMax(int arr[], int size) {
+    int maxIdx = 0;
+    for (int i = 1; i < size; i++) {
+        if (arr[i] > arr[maxIdx]) {
+            maxIdx = i;
+        }
+    }
+    return maxIdx; // Index of maximum element
+}
+
+int main() {
+    int arr[] = {1, 3, 7, 2, 5};
+    int size = sizeof(arr) / sizeof(arr[0]);
+    int maxIdx = findMax(arr, size);
+    cout << "Maximum element is at index " << maxIdx << endl;
+    return 0;
+}
