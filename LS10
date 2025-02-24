@@ -1,0 +1,22 @@
+#include <iostream>
+#include <unordered_map>
+using namespace std;
+
+int firstNonRepeatedElement(int arr[], int size) {
+    unordered_map<int, int> freq;
+    for (int i = 0; i < size; i++) {
+        freq[arr[i]]++;
+    }
+    for (int i = 0; i < size; i++) {
+        if (freq[arr[i]] == 1) return i;
+    }
+    return -1; // No non-repeated element
+}
+
+int main() {
+    int arr[] = {4, 5, 6, 4, 5, 7};
+    int size = sizeof(arr) / sizeof(arr[0]);
+    int result = firstNonRepeatedElement(arr, size);
+    cout << (result != -1 ? "First non-repeated element at index " : "No non-repeated element") << result << endl;
+    return 0;
+}
