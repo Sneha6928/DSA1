@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+
+struct Node {
+    int data;
+    Node* next;
+};
+
+int linearSearch(Node* head, int target) {
+    Node* current = head;
+    int index = 0;
+    while (current != nullptr) {
+        if (current->data == target) return index;
+        current = current->next;
+        index++;
+    }
+    return -1; // Not found
+}
+
+int main() {
+    Node* head = new Node{10, nullptr};
+    head->next = new Node{20, nullptr};
+    head->next->next = new Node{30, nullptr};
+    int target = 20;
+    int result = linearSearch(head, target);
+    cout << (result != -1 ? "Element found at index " : "Element not found") << result << endl;
+    return 0;
+}
