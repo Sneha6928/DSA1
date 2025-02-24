@@ -1,0 +1,19 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int linearSearch(float arr[], int size, float target) {
+    for (int i = 0; i < size; i++) {
+        if (fabs(arr[i] - target) < 0.0001) return i; // Precision for floating-point comparison
+    }
+    return -1; // Not found
+}
+
+int main() {
+    float arr[] = {1.1, 2.2, 3.3, 4.4, 5.5};
+    int size = sizeof(arr) / sizeof(arr[0]);
+    float target = 3.3;
+    int result = linearSearch(arr, size, target);
+    cout << (result != -1 ? "Element found at index " : "Element not found") << result << endl;
+    return 0;
+}
